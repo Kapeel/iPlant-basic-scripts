@@ -5,7 +5,7 @@ use warnings;
 use Getopt::Long qw(:config no_ignore_case no_auto_abbrev pass_through);
 use File::Basename;
 
-my $app = "/usr/local3/bin/bwa-0.7.4/bwa";
+my $app = "bwa";
 
 # Define worflow options
 my ($query_file1, $query_file2, $database_path, $user_database_path);
@@ -22,7 +22,7 @@ GetOptions( "query|query1|input=s" => \$query_file1,
 # Allow over-ride of system-level database path with user
 # May not need to do this going forward...
 if (defined($user_database_path)) {
-       $database_path = "/data2/collections/genomeservices/0.1/" . $user_database_path;
+       $database_path = $user_database_path;
 }
 
 my $out_file = "bwa_output.sam";
